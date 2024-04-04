@@ -70,6 +70,7 @@ dependencies {
     // Room
     implementation(libs.androidx.room)
     implementation(libs.androidx.room.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
     ksp(libs.androidx.room.compiler)
 
     // Dagger Hilt
