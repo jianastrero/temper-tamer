@@ -1,8 +1,8 @@
 package dev.jianastrero.tempertamer.repository.level
 
 import android.content.Context
+import android.util.Log
 import dagger.hilt.android.qualifiers.ApplicationContext
-import dev.jianastrero.tempertamer.domain.entity.Level
 import dev.jianastrero.tempertamer.domain.response.HomeResponse
 import javax.inject.Inject
 import kotlinx.serialization.ExperimentalSerializationApi
@@ -13,8 +13,8 @@ class LevelAPIRepository @Inject constructor(
     @ApplicationContext private val context: Context
 ) : ILevelRepository {
     @OptIn(ExperimentalSerializationApi::class)
-    override suspend fun getLevels(): List<Level> {
+    override suspend fun getLevels() {
         val response = Json.decodeFromStream<HomeResponse>(context.assets.open("home.json"))
-        return response.levels
+        Log.d("JIANDDEBUG", "response: ${response}")
     }
 }

@@ -11,7 +11,7 @@ data class ActivityResponse(
     @SerialName("description")
     val description: String,
     @SerialName("descriptionB")
-    val descriptionB: Any?,
+    val descriptionB: String?,
     @SerialName("icon")
     val icon: IconResponse,
     @SerialName("id")

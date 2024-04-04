@@ -7,7 +7,6 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import dev.jianastrero.tempertamer.dao.LevelDao
 import dev.jianastrero.tempertamer.db.AppDatabase
 import javax.inject.Singleton
 
@@ -24,10 +23,4 @@ class DatabaseModule {
             AppDatabase::class.java,
             "temper_tamer.db"
         ).build()
-
-    @Singleton
-    @Provides
-    fun provideLevelDao(
-        database: AppDatabase
-    ): LevelDao = database.levelDao()
 }
