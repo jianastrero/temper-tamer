@@ -13,7 +13,7 @@ class LevelAPIRepository @Inject constructor(
     @ApplicationContext private val context: Context
 ) : ILevelRepository {
     @OptIn(ExperimentalSerializationApi::class)
-    override fun getLevels(): List<Level> {
+    override suspend fun getLevels(): List<Level> {
         val response = Json.decodeFromStream<HomeResponse>(context.assets.open("home.json"))
         return response.levels
     }
