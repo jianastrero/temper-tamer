@@ -5,7 +5,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class HomeResponse(
-    @SerialName("levels")
-    val levels: List<LevelResponse>
+data class DetailsResponse(
+    @SerialName("size")
+    val size: Int
 )
