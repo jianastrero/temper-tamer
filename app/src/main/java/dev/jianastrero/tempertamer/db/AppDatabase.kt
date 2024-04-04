@@ -22,5 +22,5 @@ import dev.jianastrero.tempertamer.domain.entity.LockedIcon
     version = 1
 )
 abstract class AppDatabase : RoomDatabase() {
-    abstract class levelDao(): LevelDao
+    abstract fun levelDao(): LevelDao
 }
