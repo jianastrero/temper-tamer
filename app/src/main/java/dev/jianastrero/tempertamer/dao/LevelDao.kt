@@ -8,8 +8,8 @@ import dev.jianastrero.tempertamer.domain.entity.Level
 @Dao
 interface LevelDao {
     @Query("SELECT * FROM level")
-    fun getAll(): List<Level>
+    suspend fun getAll(): List<Level>
 
     @Insert
-    fun insertAll(vararg levels: Level)
+    suspend fun insertAll(vararg levels: Level)
 }
