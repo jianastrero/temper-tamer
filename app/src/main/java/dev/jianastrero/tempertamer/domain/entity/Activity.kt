@@ -6,7 +6,7 @@ import androidx.room.Entity
 data class Activity(
     val challengeId: String,
     val description: String,
-    val descriptionB: Any,
+    val descriptionB: String?,
     val icon: Icon,
     val id: String,
     val lockedIcon: LockedIcon,
