@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kapt)
     alias(libs.plugins.ksp)
     alias(libs.plugins.daggerHilt)
+    alias(libs.plugins.kotlinSerialization)
 }
 
 android {
@@ -74,6 +75,9 @@ dependencies {
     // Dagger Hilt
     implementation(libs.dagger.hilt)
     kapt(libs.dagger.hilt.compiler)
+
+    // Kotlin Serialization
+    implementation(libs.kotlinx.serialization.json)
 
     testImplementation(libs.junit)
 

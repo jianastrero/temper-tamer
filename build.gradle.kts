@@ -5,4 +5,5 @@ plugins {
     alias(libs.plugins.kapt) apply false
     alias(libs.plugins.ksp) apply false
     alias(libs.plugins.daggerHilt) apply false
+    alias(libs.plugins.kotlinSerialization) apply false
 }
