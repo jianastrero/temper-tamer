@@ -1,4 +1,4 @@
-package dev.jianastrero.tempertamer
+package dev.jianastrero.tempertamer.activity
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
