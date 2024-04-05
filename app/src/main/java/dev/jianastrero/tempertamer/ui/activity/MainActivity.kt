@@ -6,7 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.ui.Modifier
 import dagger.hilt.android.AndroidEntryPoint
-import dev.jianastrero.tempertamer.ui.screen.MainScreen
+import dev.jianastrero.tempertamer.ui.screen.HomeScreen
 import dev.jianastrero.tempertamer.ui.theme.TemperTamerTheme
 
 @AndroidEntryPoint
@@ -15,7 +15,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             TemperTamerTheme {
-                MainScreen(modifier = Modifier.fillMaxSize())
+                HomeScreen(modifier = Modifier.fillMaxSize())
             }
         }
     }

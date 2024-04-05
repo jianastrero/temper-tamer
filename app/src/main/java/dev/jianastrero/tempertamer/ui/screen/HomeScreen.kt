@@ -9,7 +9,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import dev.jianastrero.tempertamer.viewmodel.main.MainViewModel
 
 @Composable
-fun MainScreen(
+fun HomeScreen(
     modifier: Modifier = Modifier,
     viewModel: MainViewModel = viewModel()
 ) {
