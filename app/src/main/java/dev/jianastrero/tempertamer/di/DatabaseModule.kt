@@ -23,4 +23,10 @@ class DatabaseModule {
             AppDatabase::class.java,
             "temper_tamer.db"
         ).build()
+
+    @Singleton
+    @Provides
+    fun provideLevelDao(
+        database: AppDatabase
+    ) = database.levelDao()
 }
