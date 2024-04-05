@@ -23,6 +23,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import dev.jianastrero.tempertamer.ui.theme.LightGray
 import dev.jianastrero.tempertamer.ui.theme.TemperTamerTheme
 
 private val days = listOf(
@@ -61,13 +62,13 @@ fun DayTabs(
                         .size(16.dp)
                         .let {
                             if (index == selectedTabIndex) it.background(MaterialTheme.colorScheme.primary, CircleShape)
-                            else it.border(width = 1.dp, color = Color.LightGray, shape = CircleShape)
+                            else it.border(width = 1.dp, color = LightGray, shape = CircleShape)
                         }
                 )
                 Text(
                     text = day,
                     color = if (index == selectedTabIndex) MaterialTheme.colorScheme.primary
-                            else Color.Gray,
+                            else LightGray,
                 )
             }
         }
