@@ -16,7 +16,7 @@ class LevelAPIRepository @Inject constructor(
     @OptIn(ExperimentalSerializationApi::class)
     override suspend fun getLevels(): List<Level> {
         val response = Json.decodeFromStream<HomeResponse>(context.assets.open("home.json"))
-        Log.d("JIANDDEBUG", "response: ${response}")
+        Log.d("JIANDDEBUG", "response: $response")
         return response.levels
     }
 }
