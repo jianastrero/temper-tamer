@@ -1,23 +1,26 @@
-package dev.jianastrero.tempertamer.domain.response
+package dev.jianastrero.tempertamer.domain.model
 
 
+import androidx.room.Embedded
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class ActivityResponse(
+data class Activity(
     @SerialName("challengeId")
     val challengeId: String,
     @SerialName("description")
     val description: String,
     @SerialName("descriptionB")
     val descriptionB: String?,
+    @Embedded
     @SerialName("icon")
-    val icon: IconResponse,
+    val icon: Icon,
     @SerialName("id")
     val id: String,
+    @Embedded
     @SerialName("lockedIcon")
-    val lockedIcon: LockedIconResponse,
+    val lockedIcon: Icon,
     @SerialName("state")
     val state: String,
     @SerialName("title")

@@ -1,11 +1,11 @@
-package dev.jianastrero.tempertamer.domain.response
+package dev.jianastrero.tempertamer.domain.model
 
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class DetailsResponse(
+data class Details(
     @SerialName("size")
     val size: Int
 )

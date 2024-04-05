@@ -1,15 +1,16 @@
-package dev.jianastrero.tempertamer.domain.response
+package dev.jianastrero.tempertamer.domain.model
 
-
+import androidx.room.Embedded
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class IconResponse(
+data class Icon(
     @SerialName("description")
     val description: String,
+    @Embedded
     @SerialName("file")
-    val `file`: FileResponse,
+    val `file`: File,
     @SerialName("title")
     val title: String
 )
