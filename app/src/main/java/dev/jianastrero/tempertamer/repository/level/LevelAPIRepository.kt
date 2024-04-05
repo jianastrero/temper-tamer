@@ -19,4 +19,8 @@ class LevelAPIRepository @Inject constructor(
         Log.d("JIANDDEBUG", "response: $response")
         return response.levels
     }
+
+    override suspend fun insertAll(levels: List<Level>) {
+        // Do nothing
+    }
 }
