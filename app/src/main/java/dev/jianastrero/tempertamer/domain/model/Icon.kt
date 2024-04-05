@@ -13,4 +13,12 @@ data class Icon(
     val `file`: File,
     @SerialName("title")
     val title: String
-)
+) {
+    companion object {
+        val Sample = Icon(
+            description = "",
+            file = File.Sample,
+            title = "Chapter=01, Lesson=02, State=Active"
+        )
+    }
+}

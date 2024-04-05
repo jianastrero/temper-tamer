@@ -8,4 +8,10 @@ import kotlinx.serialization.Serializable
 data class Details(
     @SerialName("size")
     val size: Int
-)
+) {
+    companion object {
+        val Sample = Details(
+            size = 5998
+        )
+    }
+}
