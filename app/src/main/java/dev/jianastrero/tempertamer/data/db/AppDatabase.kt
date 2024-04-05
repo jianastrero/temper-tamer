@@ -1,4 +1,4 @@
-package dev.jianastrero.tempertamer.db
+package dev.jianastrero.tempertamer.data.db
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
