@@ -3,6 +3,7 @@ package dev.jianastrero.tempertamer.domain.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import dev.jianastrero.tempertamer.domain.enumeration.LevelState
 import dev.jianastrero.tempertamer.domain.model.Activity
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
@@ -17,7 +18,7 @@ data class Level(
     @SerialName("level")
     val level: String,
     @SerialName("state")
-    val state: String,
+    val state: LevelState,
     @PrimaryKey
     @SerialName("title")
     val title: String
