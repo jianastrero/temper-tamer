@@ -1,4 +1,4 @@
-package dev.jianastrero.tempertamer.dao
+package dev.jianastrero.tempertamer.data.dao
 
 import androidx.room.Dao
 import androidx.room.Insert

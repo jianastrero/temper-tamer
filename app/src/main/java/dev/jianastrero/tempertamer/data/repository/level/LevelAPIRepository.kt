@@ -1,4 +1,4 @@
-package dev.jianastrero.tempertamer.repository.level
+package dev.jianastrero.tempertamer.data.repository.level
 
 import android.content.Context
 import android.util.Log

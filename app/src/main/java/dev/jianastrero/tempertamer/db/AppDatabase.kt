@@ -3,7 +3,7 @@ package dev.jianastrero.tempertamer.db
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import dev.jianastrero.tempertamer.dao.LevelDao
+import dev.jianastrero.tempertamer.data.dao.LevelDao
 import dev.jianastrero.tempertamer.domain.converter.EntityConverters
 import dev.jianastrero.tempertamer.domain.entity.Level
 

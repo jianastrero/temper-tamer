@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.jianastrero.tempertamer.domain.entity.Level
-import dev.jianastrero.tempertamer.repository.level.ILevelRepository
+import dev.jianastrero.tempertamer.data.repository.level.ILevelRepository
 import javax.inject.Inject
 import javax.inject.Named
 import kotlinx.coroutines.flow.MutableStateFlow
