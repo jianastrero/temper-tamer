@@ -3,7 +3,6 @@ package dev.jianastrero.tempertamer.ui.theme
 import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.darkColorScheme
@@ -42,6 +41,7 @@ private val LightColorScheme = lightColorScheme(
 
 @Composable
 fun TemperTamerTheme(
+    modifier: Modifier = Modifier,
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
     dynamicColor: Boolean = true,
@@ -70,7 +70,7 @@ fun TemperTamerTheme(
         typography = Typography,
     ) {
         Surface(
-            modifier = Modifier.fillMaxSize(),
+            modifier = modifier,
             color = MaterialTheme.colorScheme.background,
             content = content
         )
