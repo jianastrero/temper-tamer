@@ -12,6 +12,14 @@ object FileDownloader {
 
     suspend fun download(context: Context, url: String, filename: String): Boolean =
         withContext(Dispatchers.IO) {
+            val newFile = File(context.filesDir, filename)
+
+            if (newFile.exists()) {
+                return@withContext true
+            } else {
+                newFile.createNewFile()
+            }
+
             val fullUrl = if (url.startsWith("http")) url else "https:$url"
             var connection: HttpURLConnection? = null
             var result = false
@@ -29,9 +37,7 @@ object FileDownloader {
                 }
 
                 connection.inputStream.use { inputStream ->
-                    File(context.filesDir, filename).also {
-                        it.createNewFile()
-                    }.outputStream().use { outputStream ->
+                    newFile.outputStream().use { outputStream ->
                         outputStream.write(inputStream.readBytes())
                     }
                 }
