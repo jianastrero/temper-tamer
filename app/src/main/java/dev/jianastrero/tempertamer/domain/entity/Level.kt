@@ -22,5 +22,15 @@ data class Level(
     @PrimaryKey
     @SerialName("title")
     val title: String
-)
+) {
+    companion object {
+        val Sample = Level(
+            activities = listOf(Activity.Sample, Activity.Sample, Activity.Sample),
+            description = "Collect your personalised techniques to beat Anxiety",
+            level = "1",
+            state = LevelState.AVAILABLE,
+            title = "Find your tools"
+        )
+    }
+}
 
