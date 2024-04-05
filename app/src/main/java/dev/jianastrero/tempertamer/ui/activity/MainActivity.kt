@@ -1,4 +1,4 @@
-package dev.jianastrero.tempertamer.activity
+package dev.jianastrero.tempertamer.ui.activity
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -6,7 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.ui.Modifier
 import dagger.hilt.android.AndroidEntryPoint
-import dev.jianastrero.tempertamer.screen.MainScreen
+import dev.jianastrero.tempertamer.ui.screen.MainScreen
 import dev.jianastrero.tempertamer.ui.theme.TemperTamerTheme
 
 @AndroidEntryPoint
