@@ -10,8 +10,8 @@ class LevelService @Inject constructor(
     private val levelAPIRepository: ILevelRepository,
     @Named("level_db")
     private val levelDBRepository: ILevelRepository
-) : ILevelService {
-    override suspend fun getLevels(): List<Level> {
+) {
+    suspend fun getLevels(): List<Level> {
         val cachedLevels = levelDBRepository.getLevels()
         if (cachedLevels.isNotEmpty()) {
             return cachedLevels
