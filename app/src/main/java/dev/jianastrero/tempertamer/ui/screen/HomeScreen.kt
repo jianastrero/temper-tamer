@@ -6,12 +6,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
-import dev.jianastrero.tempertamer.viewmodel.main.MainViewModel
+import dev.jianastrero.tempertamer.viewmodel.main.HomeViewModel
 
 @Composable
 fun HomeScreen(
     modifier: Modifier = Modifier,
-    viewModel: MainViewModel = viewModel()
+    viewModel: HomeViewModel = viewModel()
 ) {
     LaunchedEffect(Unit) {
         viewModel.fetchLevels()
