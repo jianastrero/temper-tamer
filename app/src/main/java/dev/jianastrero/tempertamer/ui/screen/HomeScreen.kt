@@ -6,6 +6,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
+import dev.jianastrero.tempertamer.ui.component.DayTabs
 import dev.jianastrero.tempertamer.ui.component.Header
 import dev.jianastrero.tempertamer.viewmodel.main.HomeViewModel
 
@@ -25,6 +26,10 @@ fun HomeScreen(
             dailyProgress = 0.8f,
             dayStreak = 0,
             modifier = Modifier.fillMaxWidth()
+        )
+        DayTabs(
+            modifier = Modifier
+                .fillMaxWidth()
         )
     }
 }
