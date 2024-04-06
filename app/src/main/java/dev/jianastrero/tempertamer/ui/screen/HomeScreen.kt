@@ -13,6 +13,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -49,28 +50,71 @@ fun HomeScreen(
     val levels by viewModel.levels.collectAsState()
     val scrollState = rememberLazyListState()
 
-    Column(modifier = modifier) {
-        Header(
-            progress = 0.03f,
-            progressStatus = "Taming temper",
-            dailyProgress = 0.8f,
-            dayStreak = 0,
-            modifier = Modifier.fillMaxWidth()
-        )
-        DayTabs(
-            onTabSelected = { index ->
-                scope.launch {
-                    scrollState.animateScrollToItem(index)
+    Scaffold(
+        topBar = {
+            Column(
+                modifier = Modifier
+                    .background(MaterialTheme.colorScheme.background)
+                    .fillMaxWidth()
+            ) {
+                Header(
+                    progress = 0.03f,
+                    progressStatus = "Taming temper",
+                    dailyProgress = 0.8f,
+                    dayStreak = 0,
+                    modifier = Modifier.fillMaxWidth()
+                )
+                DayTabs(
+                    onTabSelected = { index ->
+                        scope.launch {
+                            scrollState.animateScrollToItem(index)
+                        }
+                    },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                )
+            }
+        },
+        bottomBar = {
+            Column(
+                modifier = Modifier
+                    .background(MaterialTheme.colorScheme.background)
+                    .fillMaxWidth()
+            ) {
+                Spacer(
+                    modifier = Modifier
+                        .background(Divider)
+                        .fillMaxWidth()
+                        .height(1.dp)
+                )
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.spacedBy(11.dp),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 12.dp, bottom = 16.dp)
+                ) {
+                    Image(
+                        painter = painterResource(id = R.drawable.ic_journey),
+                        contentDescription = null,
+                        modifier = Modifier.size(24.dp)
+                    )
+                    Text(
+                        text = "Journey",
+                        color = MaterialTheme.colorScheme.primary,
+                        fontSize = 12.sp,
+                        fontWeight = FontWeight.W500,
+                        lineHeight = 16.sp,
+                        textAlign = TextAlign.Center
+                    )
                 }
-            },
-            modifier = Modifier
-                .fillMaxWidth()
-        )
+            }
+        }
+    ) { contentPadding ->
         LazyColumn(
             state = scrollState,
-            modifier = Modifier
-                .fillMaxWidth()
-                .weight(1f)
+            contentPadding = contentPadding,
+            modifier = Modifier.fillMaxWidth()
         ) {
             itemsIndexed(
                 items = levels,
@@ -83,33 +127,6 @@ fun HomeScreen(
                 )
             }
             item { Spacer(modifier = Modifier.height(40.dp)) }
-        }
-        Spacer(
-            modifier = Modifier
-                .background(Divider)
-                .fillMaxWidth()
-                .height(1.dp)
-        )
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(11.dp),
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(top = 12.dp, bottom = 16.dp)
-        ) {
-            Image(
-                painter = painterResource(id = R.drawable.ic_journey),
-                contentDescription = null,
-                modifier = Modifier.size(24.dp)
-            )
-            Text(
-                text = "Journey",
-                color = MaterialTheme.colorScheme.primary,
-                fontSize = 12.sp,
-                fontWeight = FontWeight.W500,
-                lineHeight = 16.sp,
-                textAlign = TextAlign.Center
-            )
         }
     }
 }
