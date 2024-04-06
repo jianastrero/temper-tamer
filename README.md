@@ -1,5 +1,7 @@
 # 😡➡️😃 Temper Tamer
 
+![Screenshot](screenshot.png)
+
 # Installation
 1. Open in Android Studio
 2. Run the app
