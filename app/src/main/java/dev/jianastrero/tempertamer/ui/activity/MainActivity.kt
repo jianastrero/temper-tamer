@@ -6,11 +6,10 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
 import dev.jianastrero.tempertamer.domain.screen.Screen
-import dev.jianastrero.tempertamer.ui.screen.HomeScreen
+import dev.jianastrero.tempertamer.ui.navgraph.mainNavGraph
 import dev.jianastrero.tempertamer.ui.theme.TemperTamerTheme
 
 @AndroidEntryPoint
@@ -24,11 +23,7 @@ class MainActivity : ComponentActivity() {
                 NavHost(
                     navController = navController,
                     startDestination = Screen.Home.route
-                ) {
-                    composable(Screen.Home.route) {
-                        HomeScreen(modifier = Modifier.fillMaxSize())
-                    }
-                }
+                ) { mainNavGraph(navController) }
             }
         }
     }
