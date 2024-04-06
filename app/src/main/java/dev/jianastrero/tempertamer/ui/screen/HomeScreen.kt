@@ -19,9 +19,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -33,7 +31,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import dev.jianastrero.tempertamer.R
-import dev.jianastrero.tempertamer.domain.enumeration.ActivityState
 import dev.jianastrero.tempertamer.ui.component.DayTabs
 import dev.jianastrero.tempertamer.ui.component.Header
 import dev.jianastrero.tempertamer.ui.component.LevelItem
@@ -47,14 +44,6 @@ fun HomeScreen(
 ) {
     val scrollState = rememberLazyListState()
     val levels by viewModel.levels.collectAsState()
-    val progress by remember(levels) {
-        derivedStateOf {
-            val activities = levels.flatMap { it.activities }
-            val doneCount = activities.count { it.state == ActivityState.DONE }
-            val total = activities.size
-            doneCount.toFloat() / total
-        }
-    }
 
     LaunchedEffect(Unit) {
         viewModel.fetchLevels()
@@ -63,7 +52,7 @@ fun HomeScreen(
     Scaffold(
         topBar = {
             HomeHeader(
-                progress = progress,
+                progress = 0.24f,
                 progressStatus = stringResource(R.string.taming_temper),
                 dayStreak = 0,
                 scrollState = scrollState
