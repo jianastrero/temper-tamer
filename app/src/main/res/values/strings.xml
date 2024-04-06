@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Temper Tamer</string>
+    <string name="taming_temper">Taming temper</string>
+    <string name="journey">Journey</string>
 </resources>

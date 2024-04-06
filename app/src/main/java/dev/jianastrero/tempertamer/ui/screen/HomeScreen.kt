@@ -24,6 +24,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -86,7 +87,7 @@ private fun HomeHeader(
     ) {
         Header(
             progress = 0.03f,
-            progressStatus = "Taming temper",
+            progressStatus = stringResource(R.string.taming_temper),
             dailyProgress = 0.8f,
             dayStreak = 0,
             modifier = Modifier.fillMaxWidth()
@@ -129,7 +130,7 @@ private fun HomeFooter() {
                 modifier = Modifier.size(24.dp)
             )
             Text(
-                text = "Journey",
+                text = stringResource(R.string.journey),
                 color = MaterialTheme.colorScheme.primary,
                 fontSize = 12.sp,
                 fontWeight = FontWeight.W500,
