@@ -49,3 +49,9 @@ The app is divided into 3 layers:
 - Showing the activities in the manner shown in figma
   - Solution: At first, i used FlowColumn and i couldn't get to center a row where there is only 
     1 item. So, i read the documentation and found out that i should be using FlowRow instead.
+
+# Future iterations
+ - Animations
+ - Create DTO's to not expose the models from the domain layer
+ - Add more screens
+ - Add more tests
