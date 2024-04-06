@@ -77,6 +77,7 @@ dependencies {
     // Dagger Hilt
     implementation(libs.dagger.hilt)
     kapt(libs.dagger.hilt.compiler)
+    implementation(libs.dagger.hilt.navigation.compose)
 
     // Kotlin Serialization
     implementation(libs.kotlinx.serialization.json)
