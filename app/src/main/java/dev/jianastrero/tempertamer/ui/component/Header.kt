@@ -35,7 +35,6 @@ import dev.jianastrero.tempertamer.ui.theme.TemperTamerTheme
 fun Header(
     progress: Float,
     progressStatus: String,
-    dailyProgress: Float,
     dayStreak: Int,
     modifier: Modifier = Modifier
 ) {
@@ -52,7 +51,6 @@ fun Header(
         ProgressHeader(
             progress = progress,
             progressStatus = progressStatus,
-            dailyProgress = dailyProgress,
             modifier = Modifier.padding(start = 12.dp)
         )
         Spacer(modifier = Modifier.weight(1f))
@@ -69,7 +67,6 @@ fun Header(
 private fun ProgressHeader(
     progress: Float,
     progressStatus: String,
-    dailyProgress: Float,
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -87,7 +84,7 @@ private fun ProgressHeader(
             verticalAlignment = Alignment.CenterVertically
         ) {
             LinearProgressIndicator(
-                progress = { dailyProgress },
+                progress = { progress },
                 modifier = Modifier
                     .size(72.dp, 4.dp)
                     .clip(shape = RoundedCornerShape(50))
@@ -165,7 +162,6 @@ private fun HeaderPreview() {
             Header(
                 progress = 0.03f,
                 progressStatus = "Taming Temper",
-                dailyProgress = 0.8f,
                 dayStreak = 0,
                 modifier = Modifier.fillMaxWidth()
             )
