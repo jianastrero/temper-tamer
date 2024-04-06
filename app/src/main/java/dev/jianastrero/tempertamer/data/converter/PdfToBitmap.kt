@@ -5,10 +5,12 @@ import android.graphics.Bitmap
 import android.graphics.pdf.PdfRenderer
 import android.os.ParcelFileDescriptor
 import java.io.File
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 object PdfToBitmap {
 
-    suspend fun convert(context: Context, filename: String): Bitmap {
+    suspend fun convert(context: Context, filename: String): Bitmap  = withContext(Dispatchers.IO) {
         val pdfRenderer = PdfRenderer(
             /* input = */ ParcelFileDescriptor.open(
                 /* file = */ File(
@@ -24,7 +26,7 @@ object PdfToBitmap {
         page.render(bitmap, null, null, PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY)
         page.close()
         pdfRenderer.close()
-        return bitmap
+        return@withContext bitmap
     }
 
 }
