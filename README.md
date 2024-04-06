@@ -32,7 +32,8 @@ The app is divided into 3 layers:
   - DB - Implementation of the local database
   - Downloader - logic for downloading data from a url
   - Repository - logic for retrieving data from the local cache or the API
-  - Service - logic for retrieving data from a repository without knowing the source
+  - Service - logic for retrieving data from a repository
+  - UseCase - logic for retrieving data from a service without knowing the source
 - Presentation (ui package) - contains the view models and UI
   - Activity - Activities for the app (for this case, only main activity because we are using 
     Jetpack compose)
