@@ -1,4 +1,4 @@
-package dev.jianastrero.tempertamer.domain.converter
+package dev.jianastrero.tempertamer.data.converter
 
 import androidx.room.TypeConverter
 import dev.jianastrero.tempertamer.domain.model.Activity
