@@ -43,7 +43,7 @@ fun Header(
             .padding(horizontal = 16.dp, vertical = 10.dp)
     ) {
         Image(
-            painter = painterResource(id = R.drawable.ic_journey),
+            painter = painterResource(id = R.drawable.ic_app_icon),
             contentDescription = null,
             modifier = Modifier.size(40.dp)
         )
