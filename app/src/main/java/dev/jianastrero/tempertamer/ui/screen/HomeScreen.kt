@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.MaterialTheme
@@ -41,75 +42,17 @@ fun HomeScreen(
     modifier: Modifier = Modifier,
     viewModel: HomeViewModel = viewModel()
 ) {
-    val scope = rememberCoroutineScope()
+    val scrollState = rememberLazyListState()
+    val levels by viewModel.levels.collectAsState()
 
     LaunchedEffect(Unit) {
         viewModel.fetchLevels()
     }
 
-    val levels by viewModel.levels.collectAsState()
-    val scrollState = rememberLazyListState()
-
     Scaffold(
-        topBar = {
-            Column(
-                modifier = Modifier
-                    .background(MaterialTheme.colorScheme.background)
-                    .fillMaxWidth()
-            ) {
-                Header(
-                    progress = 0.03f,
-                    progressStatus = "Taming temper",
-                    dailyProgress = 0.8f,
-                    dayStreak = 0,
-                    modifier = Modifier.fillMaxWidth()
-                )
-                DayTabs(
-                    onTabSelected = { index ->
-                        scope.launch {
-                            scrollState.animateScrollToItem(index)
-                        }
-                    },
-                    modifier = Modifier
-                        .fillMaxWidth()
-                )
-            }
-        },
-        bottomBar = {
-            Column(
-                modifier = Modifier
-                    .background(MaterialTheme.colorScheme.background)
-                    .fillMaxWidth()
-            ) {
-                Spacer(
-                    modifier = Modifier
-                        .background(Divider)
-                        .fillMaxWidth()
-                        .height(1.dp)
-                )
-                Column(
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.spacedBy(11.dp),
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(top = 12.dp, bottom = 16.dp)
-                ) {
-                    Image(
-                        painter = painterResource(id = R.drawable.ic_journey),
-                        contentDescription = null,
-                        modifier = Modifier.size(24.dp)
-                    )
-                    Text(
-                        text = "Journey",
-                        color = MaterialTheme.colorScheme.primary,
-                        fontSize = 12.sp,
-                        fontWeight = FontWeight.W500,
-                        lineHeight = 16.sp,
-                        textAlign = TextAlign.Center
-                    )
-                }
-            }
-        }
+        topBar = { HomeHeader(scrollState = scrollState) },
+        bottomBar = { HomeFooter() },
+        modifier = modifier
     ) { contentPadding ->
         LazyColumn(
             state = scrollState,
@@ -127,6 +70,73 @@ fun HomeScreen(
                 )
             }
             item { Spacer(modifier = Modifier.height(40.dp)) }
+        }
+    }
+}
+
+@Composable
+private fun HomeHeader(
+    scrollState: LazyListState
+) {
+    val scope = rememberCoroutineScope()
+
+    Column(
+        modifier = Modifier
+            .background(MaterialTheme.colorScheme.background)
+            .fillMaxWidth()
+    ) {
+        Header(
+            progress = 0.03f,
+            progressStatus = "Taming temper",
+            dailyProgress = 0.8f,
+            dayStreak = 0,
+            modifier = Modifier.fillMaxWidth()
+        )
+        DayTabs(
+            onTabSelected = { index ->
+                scope.launch {
+                    scrollState.animateScrollToItem(index)
+                }
+            },
+            modifier = Modifier
+                .fillMaxWidth()
+        )
+    }
+}
+
+@Composable
+private fun HomeFooter() {
+    Column(
+        modifier = Modifier
+            .background(MaterialTheme.colorScheme.background)
+            .fillMaxWidth()
+    ) {
+        Spacer(
+            modifier = Modifier
+                .background(Divider)
+                .fillMaxWidth()
+                .height(1.dp)
+        )
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(11.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 12.dp, bottom = 16.dp)
+        ) {
+            Image(
+                painter = painterResource(id = R.drawable.ic_journey),
+                contentDescription = null,
+                modifier = Modifier.size(24.dp)
+            )
+            Text(
+                text = "Journey",
+                color = MaterialTheme.colorScheme.primary,
+                fontSize = 12.sp,
+                fontWeight = FontWeight.W500,
+                lineHeight = 16.sp,
+                textAlign = TextAlign.Center
+            )
         }
     }
 }
