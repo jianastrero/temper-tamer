@@ -3,6 +3,7 @@ package dev.jianastrero.tempertamer.domain.model
 
 import androidx.room.Embedded
 import dev.jianastrero.tempertamer.domain.enumeration.ActivityState
+import dev.jianastrero.tempertamer.domain.enumeration.ActivityType
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -29,7 +30,7 @@ data class Activity(
     @SerialName("titleB")
     val titleB: String?,
     @SerialName("type")
-    val type: String
+    val type: ActivityType
 ) {
     companion object {
         val Sample = Activity(
@@ -42,7 +43,7 @@ data class Activity(
             state = ActivityState.NOT_SET,
             title = "Break your worry chain reaction",
             titleB = null,
-            type = "PRACTICE"
+            type = ActivityType.PRACTICE
         )
     }
 }
