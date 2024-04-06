@@ -13,4 +13,7 @@ interface LevelDao {
 
     @Insert
     suspend fun insertAll(levels: List<Level>)
+
+    @Query("DELETE FROM Level")
+    suspend fun deleteAll()
 }

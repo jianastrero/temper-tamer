@@ -23,4 +23,8 @@ class LevelAPIRepository @Inject constructor(
     override suspend fun insertAll(levels: List<Level>) {
         // Do nothing
     }
+
+    override suspend fun deleteAll() {
+        // Do nothing
+    }
 }

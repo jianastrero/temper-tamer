@@ -12,4 +12,7 @@ class LevelDBRepository @Inject constructor(
 
     override suspend fun insertAll(levels: List<Level>) =
         levelDao.insertAll(levels)
+
+    override suspend fun deleteAll() =
+        levelDao.deleteAll()
 }
