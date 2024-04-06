@@ -52,7 +52,7 @@ fun HomeScreen(
     Scaffold(
         topBar = {
             HomeHeader(
-                progress = 0.24f,
+                progress = 0.72f,
                 progressStatus = stringResource(R.string.taming_temper),
                 dayStreak = 0,
                 scrollState = scrollState

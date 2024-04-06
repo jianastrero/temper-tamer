@@ -1,5 +1,8 @@
 package dev.jianastrero.tempertamer.ui.component
 
+import androidx.compose.animation.core.EaseInOutCubic
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -19,6 +22,11 @@ import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -69,6 +77,21 @@ private fun ProgressHeader(
     progressStatus: String,
     modifier: Modifier = Modifier
 ) {
+    var animate by remember { mutableStateOf(false) }
+    val progressValue by animateFloatAsState(
+        targetValue = if (animate) progress else 0f,
+        animationSpec = tween(
+            durationMillis = 2000,
+            delayMillis = 1000,
+            easing = EaseInOutCubic
+        ),
+        label = "progress animation"
+    )
+
+    LaunchedEffect(progress) {
+        animate = true
+    }
+
     Column(
         verticalArrangement = Arrangement.spacedBy(6.dp),
         modifier = modifier
@@ -84,13 +107,13 @@ private fun ProgressHeader(
             verticalAlignment = Alignment.CenterVertically
         ) {
             LinearProgressIndicator(
-                progress = { progress },
+                progress = { progressValue },
                 modifier = Modifier
                     .size(72.dp, 4.dp)
                     .clip(shape = RoundedCornerShape(50))
             )
             Text(
-                text = "%.0f%%".format(progress * 100),
+                text = "%.0f%%".format(progressValue * 100),
                 color = MaterialTheme.colorScheme.primary,
                 fontSize = 10.sp,
                 fontWeight = FontWeight.W500,
