@@ -1,4 +1,4 @@
-package dev.jianastrero.tempertamer.viewmodel.main
+package dev.jianastrero.tempertamer.ui.viewmodel.main
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

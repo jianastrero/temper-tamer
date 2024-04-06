@@ -34,7 +34,7 @@ import dev.jianastrero.tempertamer.R
 import dev.jianastrero.tempertamer.ui.component.DayTabs
 import dev.jianastrero.tempertamer.ui.component.Header
 import dev.jianastrero.tempertamer.ui.component.LevelItem
-import dev.jianastrero.tempertamer.viewmodel.main.HomeViewModel
+import dev.jianastrero.tempertamer.ui.viewmodel.main.HomeViewModel
 import kotlinx.coroutines.launch
 
 @Composable
