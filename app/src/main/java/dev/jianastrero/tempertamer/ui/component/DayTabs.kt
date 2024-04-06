@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
@@ -38,6 +39,7 @@ private val days = listOf(
 
 @Composable
 fun DayTabs(
+    onTabSelected: (index: Int) -> Unit,
     modifier: Modifier = Modifier
 ) {
     var selectedTabIndex by remember { mutableStateOf(0) }
@@ -52,7 +54,10 @@ fun DayTabs(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.spacedBy(8.dp),
                 modifier = Modifier
-                    .clickable { selectedTabIndex = index }
+                    .clickable {
+                        selectedTabIndex = index
+                        onTabSelected(index)
+                    }
                     .fillMaxSize()
                     .padding(top = 4.dp, bottom = 8.dp)
             ) {
@@ -80,7 +85,10 @@ fun DayTabs(
 fun DayTabsPreview() {
     TemperTamerTheme(modifier = Modifier.fillMaxSize()) {
         Column(modifier = Modifier.fillMaxSize()) {
-            DayTabs()
+            DayTabs(
+                onTabSelected = {},
+                modifier = Modifier.fillMaxWidth()
+            )
         }
     }
 }
