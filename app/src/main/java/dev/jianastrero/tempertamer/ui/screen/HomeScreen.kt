@@ -33,7 +33,6 @@ import dev.jianastrero.tempertamer.R
 import dev.jianastrero.tempertamer.ui.component.DayTabs
 import dev.jianastrero.tempertamer.ui.component.Header
 import dev.jianastrero.tempertamer.ui.component.LevelItem
-import dev.jianastrero.tempertamer.ui.theme.Divider
 import dev.jianastrero.tempertamer.viewmodel.main.HomeViewModel
 import kotlinx.coroutines.launch
 
@@ -113,7 +112,7 @@ private fun HomeFooter() {
     ) {
         Spacer(
             modifier = Modifier
-                .background(Divider)
+                .background(MaterialTheme.colorScheme.tertiary)
                 .fillMaxWidth()
                 .height(1.dp)
         )

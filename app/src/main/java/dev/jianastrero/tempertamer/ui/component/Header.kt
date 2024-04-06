@@ -2,6 +2,8 @@ package dev.jianastrero.tempertamer.ui.component
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -14,13 +16,13 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.LinearProgressIndicator
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -92,6 +94,7 @@ private fun ProgressHeader(
             )
             Text(
                 text = "%.0f%%".format(progress * 100),
+                color = MaterialTheme.colorScheme.primary,
                 fontSize = 10.sp,
                 fontWeight = FontWeight.W500,
                 lineHeight = 15.sp
@@ -116,6 +119,7 @@ private fun StreakHeader(
         )
         Text(
             text = "$dayStreak",
+            color = MaterialTheme.colorScheme.primary,
             fontSize = 16.sp,
             fontWeight = FontWeight.W500,
             lineHeight = 26.sp
@@ -130,15 +134,25 @@ private fun UserIconHeader(
     Box(
         modifier = modifier
             .shadow(elevation = 4.dp, shape = CircleShape)
-            .background(color = Color.White, shape = CircleShape)
+            .background(
+                color = MaterialTheme.colorScheme.background,
+                shape = CircleShape
+            )
+            .let {
+                if (isSystemInDarkTheme()) it.border(
+                    width = 1.dp,
+                    color = MaterialTheme.colorScheme.tertiary,
+                    shape = CircleShape
+                ) else it
+            }
             .size(40.dp)
     ) {
         Image(
             painter = painterResource(id = R.drawable.ic_user),
             contentDescription = null,
             modifier = Modifier
-                .size(10.12.dp, 17.77.dp)
                 .align(Alignment.Center)
+                .size(10.12.dp, 17.77.dp)
         )
     }
 }

@@ -12,11 +12,11 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -26,7 +26,6 @@ import androidx.compose.ui.unit.sp
 import dev.jianastrero.tempertamer.R
 import dev.jianastrero.tempertamer.domain.entity.Level
 import dev.jianastrero.tempertamer.domain.enumeration.LevelState
-import dev.jianastrero.tempertamer.ui.theme.Gray
 import dev.jianastrero.tempertamer.ui.theme.TemperTamerTheme
 
 @OptIn(ExperimentalLayoutApi::class)
@@ -54,14 +53,17 @@ fun LevelItem(
                 )
                 Text(
                     text = "LEVEL ${level.level}",
-                    color = Color.White,
+                    color = MaterialTheme.colorScheme.background,
                     fontSize = 12.sp,
                     fontWeight = FontWeight.W500,
                     lineHeight = 18.sp,
                     textAlign = TextAlign.Center,
                     modifier = Modifier
                         .align(Alignment.BottomCenter)
-                        .background(color = Color.Black, shape = RoundedCornerShape(8.dp))
+                        .background(
+                            color = MaterialTheme.colorScheme.onBackground,
+                            shape = RoundedCornerShape(8.dp)
+                        )
                         .padding(horizontal = 12.dp, vertical = 4.dp)
                 )
             }
@@ -79,7 +81,7 @@ fun LevelItem(
                 )
                 Text(
                     text = level.description,
-                    color = Gray,
+                    color = MaterialTheme.colorScheme.secondary,
                     fontSize = 12.sp,
                     fontWeight = FontWeight.W400,
                     lineHeight = 18.sp,
