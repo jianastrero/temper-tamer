@@ -8,7 +8,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
-import dev.jianastrero.tempertamer.domain.screen.Screen
+import dev.jianastrero.tempertamer.domain.model.screen.Screen
 import dev.jianastrero.tempertamer.ui.navgraph.mainNavGraph
 import dev.jianastrero.tempertamer.ui.theme.TemperTamerTheme
 
