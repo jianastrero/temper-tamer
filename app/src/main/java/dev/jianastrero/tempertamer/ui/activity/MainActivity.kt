@@ -5,7 +5,11 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.ui.Modifier
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
+import dev.jianastrero.tempertamer.domain.screen.Screen
 import dev.jianastrero.tempertamer.ui.screen.HomeScreen
 import dev.jianastrero.tempertamer.ui.theme.TemperTamerTheme
 
@@ -14,8 +18,17 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+            val navController = rememberNavController()
+
             TemperTamerTheme(modifier = Modifier.fillMaxSize()) {
-                HomeScreen(modifier = Modifier.fillMaxSize())
+                NavHost(
+                    navController = navController,
+                    startDestination = Screen.Home.route
+                ) {
+                    composable(Screen.Home.route) {
+                        HomeScreen(modifier = Modifier.fillMaxSize())
+                    }
+                }
             }
         }
     }
