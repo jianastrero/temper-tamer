@@ -54,7 +54,7 @@ The app is divided into 3 layers:
     1 item. So, i read the documentation and found out that i should be using FlowRow instead.
 
 # Future iterations
- - Animations
- - Create DTO's to not expose the models from the domain layer
- - Add more screens
- - Add more tests
+- Create DTO's to not expose the models from the domain layer
+- Add more screens
+- Add more tests
+- Add more animations
