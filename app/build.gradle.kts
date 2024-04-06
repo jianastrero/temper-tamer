@@ -82,6 +82,9 @@ dependencies {
     // Kotlin Serialization
     implementation(libs.kotlinx.serialization.json)
 
+    // Mockito
+    testImplementation(libs.mockito)
+
     testImplementation(libs.junit)
 
     androidTestImplementation(libs.androidx.junit)
