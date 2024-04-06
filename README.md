@@ -1,6 +1,6 @@
 # 😡➡️😃 Temper Tamer
 
-![Screenshot](screenshot.png)
+<img src="screenshot.png" alt="Screenshot" width="320"/>
 
 # Installation
 1. Open in Android Studio
